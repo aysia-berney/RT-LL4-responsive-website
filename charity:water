@@ -27,18 +27,79 @@
       background-color: var(--white);
     }
 
+    nav.navbar {
+  background-color: var(--white);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo {
+  height: 45px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--black);
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--earth);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--white);
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: none; /* You could add JS to toggle later */
+  }
+
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
     header.hero {
-      background: url('https://via.placeholder.com/1600x900') center/cover no-repeat;
-      color: var(--white);
-      text-align: center;
-      padding: 8rem 2rem 6rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      min-height: 80vh;
-    }
+  background: url('images/use.jpg') center center / cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: 6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
 
     header.hero::after {
       content: '';
@@ -133,10 +194,46 @@
       header.hero p {
         font-size: 1.5rem;
       }
+
+      .disclaimer {
+  font-size: 0.95rem;
+  color: var(--white);
+  margin-top: 2rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
     }
+
+    @media (max-width: 480px) {
+  header.hero h1 {
+    font-size: 2rem;
+  }
+
+  header.hero p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .cta-btn {
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+  }
+}
   </style>
 </head>
 <body>
+  <nav class="navbar">
+  <div class="container">
+    <img src="images/Screenshot 2025-05-18 190404.png" alt="charity: water logo" class="logo">
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Impact</a></li>
+      <li><a href="#">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
   <header class="hero">
     <h1>This Isn’t Just Water. It’s Power, Dignity, and a Future.</h1>
     <p>Your support brings clean, life-changing water to real people. This isn’t just charity. It’s the start of something bigger. Real change starts with you. </p>
@@ -146,12 +243,19 @@
   <section class="story">
     <h2>A World Without Clean Water</h2>
     <p>Imagine starting every morning with a two-hour walk just to collect water that could make you sick. For nearly 771 million people, that's reality. But it doesn’t have to be. Your support can bring clean, reliable water to families across the globe, unlocking time, education, and opportunity for generations to come.</p>
-    <img src="https://via.placeholder.com/900x500" alt="Smiling family near a new water pump">
+    <img src="images/2026b716-bc7e-43a7-b545-c80f73d31514.png" alt="Smiling family near a new water pump">
   </section>
 
   <section class="cta">
     <h3>You can be the reason someone drinks clean water today.</h3>
     <button class="cta-btn">Give Water</button>
+
+      <p class="disclaimer">
+    charity: water is a 501(c)(3) nonprofit organization. <br>
+    100% of public donations go directly to fund clean water projects.
+  </p>
+
   </section>
 </body>
 </html>
+
